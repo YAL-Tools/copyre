@@ -81,8 +81,9 @@ class Main {
 			var i = 0;
 			var n = lines.length & ~1;
 			while (i < n) {
-				var from = lines[i];
-				var to = lines[i + 1];
+				var from = lines[i++];
+				if (from.trim() == "") continue;
+				var to = lines[i++];
 				to = ~/\$\{(newName|newname|NEWNAME)\}/.map(to, function(rx) {
 					var s = rx.matched(1);
 					if (s.unsafeCodeAt(0) == "N".code) return r2.toUpperCase();
@@ -93,7 +94,6 @@ class Main {
 					return randomGUID(rx.matched(1).unsafeCodeAt(0) == "N".code);
 				});
 				pairs.push({from:from, to:to});
-				i += 2;
 			}
 		}
 		for (ls in FileSystem.readDirectory(s1)) {
