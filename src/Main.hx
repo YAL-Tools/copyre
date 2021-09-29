@@ -83,6 +83,7 @@ class Main {
 			while (i < n) {
 				var from = lines[i++];
 				if (from.trim() == "") continue;
+				if (~/\s\/\/.+/.match(from)) continue;
 				var to = lines[i++];
 				to = ~/\$\{(newName|newname|NEWNAME)\}/.map(to, function(rx) {
 					var s = rx.matched(1);
