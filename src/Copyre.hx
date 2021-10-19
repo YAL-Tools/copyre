@@ -3,7 +3,6 @@ package;
 import haxe.io.BytesInput;
 import haxe.io.Eof;
 import haxe.io.Path;
-import neko.Lib;
 import sys.FileSystem;
 import sys.io.File;
 import sys.io.FileSeek;
@@ -13,7 +12,7 @@ using StringTools;
  * ...
  * @author YellowAfterlife
  */
-class Main {
+class Copyre {
 	static var pairs:Array<{ from:String, to:String }> = [];
 	static function copyFile(s1:FullPath, s2:FullPath, r1:String, r2:String) {
 		var stat = FileSystem.stat(s1);
